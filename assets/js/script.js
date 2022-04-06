@@ -23,7 +23,7 @@ var timeLeft = document.querySelector("#time-left");
 var questionNumber = 0;
 var correctAnswers = 0;
 var wrongAnswers = 0;
-var secondsLeft = 12;
+var secondsLeft = 45;
 var finalScore = 0;
 
 var allQuestions = [
@@ -62,6 +62,7 @@ gobackButton.addEventListener("click", function() {
 //event listener to start the game
 startButton.addEventListener("click", function() {
     questionNumber = 0;
+    secondsLeft = 45;
     //hides starting screen and then displays questions screen
     startScreen.setAttribute("style", "display: none;");
     questionsScreen.setAttribute("style", "display: inline;");
@@ -100,6 +101,7 @@ answer1.addEventListener("click", function() {
         confirmation.setAttribute("style", "display: block;");
         wrongAnswers++;
         questionNumber++;
+        secondsLeft = secondsLeft - 10;
         setTimeout(function() {
             confirmation.setAttribute("style", "display: none;");
             if(questionNumber == 5){
@@ -127,6 +129,7 @@ answer2.addEventListener("click", function() {
         confirmation.setAttribute("style", "display: block;");
         wrongAnswers++;
         questionNumber++;
+        secondsLeft = secondsLeft - 10;
         setTimeout(function() {
             confirmation.setAttribute("style", "display: none;");
             if(questionNumber == 5){
@@ -154,6 +157,7 @@ answer3.addEventListener("click", function() {
         confirmation.setAttribute("style", "display: block;");
         wrongAnswers++;
         questionNumber++;
+        secondsLeft = secondsLeft - 10;
         setTimeout(function() {
             confirmation.setAttribute("style", "display: none;");
             if(questionNumber == 5){
@@ -182,6 +186,7 @@ answer4.addEventListener("click", function() {
         confirmation.setAttribute("style", "display: block;");
         wrongAnswers++;
         questionNumber++;
+        secondsLeft = secondsLeft - 10;
         setTimeout(function() {
             confirmation.setAttribute("style", "display: none;");
             if(questionNumber == 5){
@@ -195,7 +200,7 @@ answer4.addEventListener("click", function() {
 
 //starts the timer and ends the game if the timer gets to zero or if player answers all questions
 function startTimer() {
-    secondsLeft = 45;
+    
     var timerInterval = setInterval(function() {
         secondsLeft--;
         timeLeft.textContent = "Time left: " + secondsLeft;
