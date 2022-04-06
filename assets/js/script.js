@@ -27,8 +27,11 @@ var secondsLeft = 12;
 var finalScore = 0;
 
 var allQuestions = [
-    ["What is 1+1", "3", "11", "2", "35"],
-    ["What is 2+1", "11", "3", "35", "2"],
+    ["What do sea turtles mainly eat?", "Jellyfish", "Krill", "Seagrass and Algae", "Sea Anemone"],
+    ["Where do sea turtles lay their eggs?", "Inside Coral Reefs", "On the Beach", "On the Sea Floor", "They Don't Lay Eggs"],
+    ["How long can sea turtles hold their breath?", "About 5 Hours", "About 30 Min", "They Have Gills", "About 12 Hours"],
+    ["What is the largest sea turtle species", "Loggerhead Sea Turtle", "Leatherback Sea Turtle", "Hawksbill Sea Turtle", "Green Sea Turtle"],
+    ["What are sea turtles main predators?", "Sharks", "Fishing Boats", "Dogs", "All of The Above"]
 ];
 
 var localScores = JSON.parse(localStorage.getItem("highScores"));
@@ -80,14 +83,14 @@ function showQuestion(x) {
 
 //button listeners for correct answer
 answer1.addEventListener("click", function() {
-    if(questionNumber == 3){
+    if(questionNumber == 2){
         confirmation.innerHTML = "Correct!"
         confirmation.setAttribute("style", "display: block;");
         correctAnswers++;
         questionNumber++;
         setTimeout(function() {
             confirmation.setAttribute("style", "display: none;");
-            if(questionNumber == 2){
+            if(questionNumber == 5){
                 endGame();
             }
         }, 1000);
@@ -99,7 +102,7 @@ answer1.addEventListener("click", function() {
         questionNumber++;
         setTimeout(function() {
             confirmation.setAttribute("style", "display: none;");
-            if(questionNumber == 2){
+            if(questionNumber == 5){
                 endGame();
             }
         }, 1000);
@@ -107,14 +110,14 @@ answer1.addEventListener("click", function() {
     }
 });
 answer2.addEventListener("click", function() {
-    if(questionNumber == 1){
+    if(questionNumber == 1 || questionNumber == 3){
         confirmation.innerHTML = "Correct!"
         confirmation.setAttribute("style", "display: block;");
         correctAnswers++;
         questionNumber++;
         setTimeout(function() {
             confirmation.setAttribute("style", "display: none;");
-            if(questionNumber == 2){
+            if(questionNumber == 5){
                 endGame();
             }
         }, 1000);
@@ -126,7 +129,7 @@ answer2.addEventListener("click", function() {
         questionNumber++;
         setTimeout(function() {
             confirmation.setAttribute("style", "display: none;");
-            if(questionNumber == 2){
+            if(questionNumber == 5){
                 endGame();
             }
         }, 1000);
@@ -141,7 +144,7 @@ answer3.addEventListener("click", function() {
         questionNumber++;
         setTimeout(function() {
             confirmation.setAttribute("style", "display: none;");
-            if(questionNumber == 2){
+            if(questionNumber == 5){
                 endGame();
             }
         }, 1000);
@@ -153,7 +156,7 @@ answer3.addEventListener("click", function() {
         questionNumber++;
         setTimeout(function() {
             confirmation.setAttribute("style", "display: none;");
-            if(questionNumber == 2){
+            if(questionNumber == 5){
                 endGame();
             }
         }, 1000);
@@ -168,7 +171,7 @@ answer4.addEventListener("click", function() {
         questionNumber++;
         setTimeout(function() {
             confirmation.setAttribute("style", "display: none;");
-            if(questionNumber == 2){
+            if(questionNumber == 5){
                 endGame();
             }
             showQuestion(questionNumber);
@@ -181,7 +184,7 @@ answer4.addEventListener("click", function() {
         questionNumber++;
         setTimeout(function() {
             confirmation.setAttribute("style", "display: none;");
-            if(questionNumber == 2){
+            if(questionNumber == 5){
                 endGame();
             }
             
@@ -192,7 +195,7 @@ answer4.addEventListener("click", function() {
 
 //starts the timer and ends the game if the timer gets to zero or if player answers all questions
 function startTimer() {
-    secondsLeft = 12;
+    secondsLeft = 45;
     var timerInterval = setInterval(function() {
         secondsLeft--;
         timeLeft.textContent = "Time left: " + secondsLeft;
@@ -205,7 +208,7 @@ function startTimer() {
           timeLeft.setAttribute("style", "border: 0;");
           // Calls function to create and append image
           endGame();
-        }else if(questionNumber == 2){
+        }else if(questionNumber == 5){
           finalScore = (correctAnswers * secondsLeft) - (wrongAnswers * secondsLeft);
           clearInterval(timerInterval);
           timeLeft.textContent = "";
