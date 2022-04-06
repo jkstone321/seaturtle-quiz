@@ -246,7 +246,12 @@ function endGame() {
 document.querySelector("#submit-button").addEventListener("click", function() {
     event.preventDefault();
     questionNumber = 0;
-    
+    if(document.querySelector("#initials-input").value == ""){
+        document.querySelector("#error-text").setAttribute("style", "display: inline;");
+        setTimeout(function() {
+            document.querySelector("#error-text").setAttribute("style", "display: none;");
+        }, 1000);
+    }else{
     correctAnswers = 0;
     wrongAnswers = 0;
     var initials = document.querySelector("#initials-input").value;
@@ -265,6 +270,7 @@ document.querySelector("#submit-button").addEventListener("click", function() {
     document.querySelector("#initials-input").value = "";
     finalScore = 0;
     showScores();
+    }
 });
 
 document.querySelector("#clear-score-btn").addEventListener("click", function() {
