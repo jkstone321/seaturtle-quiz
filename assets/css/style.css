@@ -1,0 +1,161 @@
+:root{
+    --seafoam: #A4EBDB;
+    --lightblue: #b4e7eb;
+    --green: #5CFFAB;
+    --darkblue: #0578B5;
+    --darkgreen: #44BD7E;
+    --anotherblue: #7c9daf;
+} 
+/* coloring */
+body{
+    font-size: 24px;
+    background-color: var(--seafoam);
+    color: var(--darkblue);
+}
+button{
+    background-color: var(--green);
+    border: 2px solid var(--darkblue);
+    color: var(--darkblue);
+    border-radius: 3px;
+}
+button:hover{
+    background-color: var(--darkgreen);
+    cursor: pointer;
+    color: var(--lightblue)
+}
+#high-scores{
+    display:inline;
+    position: relative;
+    float: left;
+    margin: 5px;
+}
+
+#time-left{
+    position: relative;
+    float: right;
+    display: none;
+    margin: 5px;
+    background-color: var(--lightblue);
+    border: 2px solid var(--darkblue);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#starting-screen{
+    display: inline;
+}
+#questions-screen{
+    display: none;
+}
+#ending-screen{
+    display: none;
+}
+#hiscore-screen{
+    display: none;
+}
+h1{
+    text-align: center;
+    font-size: 64px;
+    padding-top: 5%;
+    padding-bottom: 20px;
+}
+
+p{
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+#container{
+    position: relative;
+}
+
+#starting-screen #container button{
+    position:absolute;
+    left: 50%;
+    transform: translate(-50%, 50%)
+}
+
+#questions-screen button{
+    width: 25%;
+}
+
+ul, ol{
+    text-align: center;
+}
+li{
+    display: block;
+    padding: 10px;
+}
+button{
+    padding: 1px 5px;
+}
+h2{
+    text-align: center;
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    border-top: 2px solid var(--darkblue);
+    width: 25%;
+    position:absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+form{
+    text-align: center;
+    display: block;
+}
+input{
+    width: 100px;
+}
+#display-final-score{
+    line-height: 40px;
+    font-size: 32px;
+    width: 25%;
+    border: 2px solid var(--darkblue);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: var(--lightblue);
+}
+#table-container li{
+    text-align: center;
+}
+#hiscore-screen #container{
+    position:absolute;
+    display: inline;
+    left: 50%;
+    transform: translate(-50%, 50%)
+}
+#names{
+    list-style-type: armenian;
+}
+#hiscore-screen h3{
+    display: inline-block;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 2px solid var(--darkblue);
+    width: 100%;
+    text-align: center;
+    background-color: var(--anotherblue);
+}
+#name-container,
+#score-container{
+    display:block;
+    margin: 5px 30px;
+    border: 2px solid var(--darkblue);
+    border-radius: 5px;
+    width: 10%;
+}
+#high-container{
+    display:flex;
+    justify-content: center;
+}
+#high-container li{
+    border-bottom: 2px solid var(--darkblue);
+}
+#high-container li:last-child{
+    border-bottom: 0;
+}
+#high-container li:nth-child(2n){
+    background-color: var(--lightblue);
+}
